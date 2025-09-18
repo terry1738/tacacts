@@ -1,0 +1,12 @@
+# Ignore system and editor files
+*.swp
+*.bak
+*.tmp
+.DS_Store
+
+# Ignore logs
+*.log
+
+# Ignore local config if needed
+db.php
+/etc/tacacts/db.conf.php
