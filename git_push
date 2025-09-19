@@ -1,0 +1,5 @@
+#!/bin/bash
+DT="date +%d-%m-%Y_%H_%M_%S"
+git add .
+git commit -m "$DT"
+git push origin main
