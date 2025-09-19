@@ -9,7 +9,7 @@ if (isset($_SESSION['success_message'])) {
     echo "<p class='success'>" . htmlspecialchars($_SESSION['success_message']) . "</p>";
     unset($_SESSION['success_message']);
 }
-require 'db.php'; // uses your current getDB()
+require 'db.php'; // uses your current getDB() /e/t/d
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
