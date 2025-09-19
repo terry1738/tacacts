@@ -94,17 +94,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $params[":step{$i}_cost"]   = $costs[$i];
         }
 
-        $stmt->execute($params);
 
 	// After successful insert
-    // Clear all form variables
-if ($stmt->execute()) {
-    $_SESSION['success_message'] = "Plan added successfully!";
-    header("Location: create-plan.php");
-    exit;
-} else {
-    echo "<p class='error'>Error adding plan.</p>";
-}
+    	// Clear all form variables and do the insert once
+	$ok = $stmt->execute($params);
+	
+	if ($ok) {
+	    // Success: set message & redirect
+	    session_start();  // if not already
+	    $_SESSION['success_message'] = "Plan added successfully!";
+	    header("Location: create-plan.php");
+	    exit;
+	} else {
+	    echo "<p class='error'>Error adding plan.</p>";
+	}
+
 
     } catch (PDOException $e) {
         echo "<p>Error: " . htmlspecialchars($e->getMessage()) . "</p>";
